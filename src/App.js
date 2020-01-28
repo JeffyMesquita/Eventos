@@ -1,25 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route }from 'react-router-dom';
+import store from '../src/store/';
+import { Provider } from 'react-redux';
+
+/* Páginas */
+import Login from './view/login';
+import NovoUsuario from './view/usuario-novo';
+import Home from './view/home';
+import UsuarioRecuperarSenha from './view/usuario-recuperar-senha/';
+import EventoCadastro from './view/evento-cadastro/';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Router>
+        <Route exact path='/login' component={Login} />
+        <Route exact path='/novousuario' component={NovoUsuario} />
+        <Route exact path='/' component={Home} />
+        <Route exact path='/usuariorecuperarsenha' component={UsuarioRecuperarSenha} />
+        <Route exact path='/eventocadastro' component={EventoCadastro} />
+
+
+      </Router>
+    </Provider>
   );
 }
 
