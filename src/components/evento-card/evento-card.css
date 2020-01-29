@@ -21,5 +21,6 @@
 .img-cartao {
   border-radius: 10px;
   max-height: 200px;
+  max-height: 100px;
   min-width: 100%;
 }
